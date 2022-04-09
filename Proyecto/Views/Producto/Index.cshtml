@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Proyecto.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mantenimiento de Productos</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Nuevo", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>Unidad Medida</th>
+        <th>Clasificacion de producto</th>
+        <th>Fecha de ingreso</th>
+        <th>Precio</th>
+        <th>Estado</th>
+    </tr>
+    @foreach (var model in Model)
+    {
+        <tr>
+
+            <td>@Html.DisplayFor(m => model.ProductoId)</td>
+            <td>@Html.DisplayFor(m => model.Codigo)</td>
+            <td>@Html.DisplayFor(m => model.Descripcion)</td>
+            <td>@Html.DisplayFor(m => model.Unidad.Descripcion)</td>
+            <td>@Html.DisplayFor(m => model.ClasificacionProducto.Descripcion)</td>
+            <td>@Html.DisplayFor(m => model.FechaIngreso)</td>
+            <td>@Html.DisplayFor(m => model.Precio)</td>
+            <td>@Html.DisplayFor(m => model.Estado)</td>
+            <td>
+                @Html.ActionLink("Detalle", "Detalles", new { productoid = model.ProductoId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Editar", "Editar", new { productoid = model.ProductoId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { productoid = model.ProductoId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

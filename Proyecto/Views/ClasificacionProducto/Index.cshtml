@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Proyecto.Models.ClasificacionProducto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Mantenimiento de Producto</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Nuevo", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Codigo</th>
+        <th>Estado</th>
+
+    </tr>
+    @foreach (var model in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => model.ClasificacionProductoId)</td>
+            <td>@Html.DisplayFor(m => model.Descripcion)</td>
+            <td>@Html.DisplayFor(m => model.Codigo)</td>
+            <td>@Html.DisplayFor(m => model.Estado)</td>
+
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = model.ClasificacionProductoId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Detalles", "Detalles", new { id = model.ClasificacionProductoId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = model.ClasificacionProductoId }, new { @class = "btn btn-danger" })
+
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,75 @@
+﻿@model Proyecto.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClasificacionCliente.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClasificacionCliente.Descripcion)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PorcentajeDescuento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PorcentajeDescuento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClasificacionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClasificacionId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { clienteid = Model.ClienteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Proyecto.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mantenimiento de Clientes</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Nuevo", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Porcentaje De Descuento</th>
+        <th>Clasificacion</th>
+        <th>Estado</th>
+    </tr>
+    @foreach (var model in Model)
+    {
+        <tr>
+
+            <td>@Html.DisplayFor(m => model.ClienteId)</td>
+            <td>@Html.DisplayFor(m => model.Nombres)</td>
+            <td>@Html.DisplayFor(m => model.Apellidos)</td>
+            <td>@Html.DisplayFor(m => model.PorcentajeDescuento)</td>
+            <td>@Html.DisplayFor(m => model.ClasificacionCliente.Descripcion)</td>
+            <td>@Html.DisplayFor(m => model.Estado)</td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { clienteid = model.ClienteId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Detalle", "Detalles", new { clienteid = model.ClienteId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { clienteid = model.ClienteId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
